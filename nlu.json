@@ -85,6 +85,34 @@
     },
     "patterns" : [ "погод*" ],
     "priority" : 0
+  }, {
+    "path" : "/время",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "время"
+    }, {
+      "text" : "узнать время"
+    }, {
+      "text" : "врем"
+    }, {
+      "text" : "часы"
+    }, {
+      "text" : "текущее вермя"
+    }, {
+      "text" : "время"
+    }, {
+      "text" : "тайм"
+    }, {
+      "text" : "час"
+    }, {
+      "text" : "минуты"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ "врем*" ],
+    "priority" : 0
   } ],
   "entities" : [ ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],

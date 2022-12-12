@@ -1,6 +1,9 @@
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
-require: requests.js 
+require: dateTime/dateTime.sc
+  module = sys.zb-common
+require: js/weather.js 
+
 theme: /
 
     state: Start
@@ -15,6 +18,10 @@ theme: /
     state: /GetWeather
         script: 
             findWeatherData();
+    state: CurrentTime:
+        intent!: /время
+        script: 
+            getCurrentTime();
     state: NoMatch || noContext = true
         event!: noMatch
         a: Я тебя не понял, пожалуйста, повтори фразу

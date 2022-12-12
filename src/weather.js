@@ -2,9 +2,10 @@ function findWeatherData() {
     try {
         getWeather();
     } catch(err) {
-        sendTextResponse("Не удалось найти погоду по вашему городу");
-        log(err.message);
+        sendTextResponse("Я не нашел погоды для вашего города");
+        $reactions.transition({value: '/Weather', deferred: false});
     }
+    
 }
 
 function getWeather() {
@@ -23,8 +24,8 @@ function getWeather() {
     
     var weatherResponse = loadWeatherData(url, params);
     
-    var state = weatherResponse.data.list[0].weahter[0].main;
-    
+    var state = weatherResponse.data.list[0].weather[0].main;
+    log(state);
     switch(state) {
         case "Clear":
             state = 'Чистое небо';
@@ -49,13 +50,13 @@ function getWeather() {
             break;
     }
     
-    var temp = weatherRespose.data.list[0].main.temp;
-    var text = "У вас сейчас: " + state + "\n Температура: " + temp;
+    var temp = weatherResponse.data.list[0].main.temp;
+    var text = "У вас сейчас: " + state + "\nТемпература: " + temp;
     sendTextResponse(text);
 }
 
 function sendTextResponse(text) {
-    var $response = $context.response;
+    var $response = $jsapi.context().response;
 
     $response.replies = $response.replies || [];
     
