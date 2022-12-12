@@ -123,3 +123,29 @@ function getCurrentTime() {
     
     sendTextResponse(date.locale("ru").format("MMMM Do YYYY, h:mm:ss a"));
 }
+
+/*----------handle pulse input------------*/
+
+function handleTopPulse() {
+    var $parseTree = $jsapi.context().parseTree;
+    
+    var pulse = $parseTree.value;
+    
+    sendTextResponse(pulse);
+    sendTextResponse("назовите так-же нижний пульс");
+    $reactions.transition({value: "/Pulse/handleBottomPulse", deferred: true})
+}
+
+function handleBottomPulse() {
+    var $parseTree = $jsapi.context().parseTree;
+    var pulse = $parseTree.value;
+    
+    sendTextResponse(pulse);
+    
+    $reactions.transition({value: "/Start", deferred: true})
+}
+
+function handleFullPulse() {
+    var $parseTree = $jsapi.context().parseTree;
+    sendTextResponse($parseTree.Number[0].value + '/' + $parseTree.Number[1].value);
+}
