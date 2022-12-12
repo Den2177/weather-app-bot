@@ -114,3 +114,12 @@ function mountParametersToQueryString(url, paramsObj) {
 function getAppId() {
     return "6838f29871380f5b96e70075eb3f5613";
 }
+
+/*-------working with time--------*/
+
+function getCurrentTime() {
+    var $temp = $jsapi.context().temp;
+    var date = currentDate();
+    
+    sendTextResponse(date.locale("ru").format("MMMM Do YYYY, h:mm:ss a"));
+}

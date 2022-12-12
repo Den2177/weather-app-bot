@@ -2,7 +2,8 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
 require: dateTime/dateTime.sc
   module = sys.zb-common
-require: js/weather.js 
+require: js/functions.js 
+
 
 theme: /
 
