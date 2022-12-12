@@ -16,6 +16,26 @@
     "shared" : false
   },
   "intents" : [ {
+    "path" : "/город",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "москва"
+    }, {
+      "text" : "питер"
+    }, {
+      "text" : "казань"
+    }, {
+      "text" : "волгоград"
+    }, {
+      "text" : "самара"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ "*" ],
+    "priority" : 0
+  }, {
     "path" : "/пока",
     "enabled" : true,
     "shared" : false,
